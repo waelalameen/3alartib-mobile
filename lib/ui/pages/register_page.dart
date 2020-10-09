@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ratib_project/ui/widgets/input_field.dart';
 import 'package:ratib_project/ui/widgets/primary_button.dart';
 
@@ -19,6 +20,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: primary,
+        systemNavigationBarColor: primary
+    ));
     return Scaffold(
       backgroundColor: primary,
       body: SingleChildScrollView(

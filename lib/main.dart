@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ratib_project/ui/colors.dart';
+import 'package:ratib_project/ui/pages/home_page.dart';
 import 'package:ratib_project/ui/pages/login_page.dart';
 import 'package:ratib_project/ui/pages/otp_page.dart';
 import 'package:ratib_project/ui/pages/register_page.dart';
@@ -24,11 +24,12 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         appBarTheme: AppBarTheme(brightness: Brightness.light)
       ),
-      home: OtpPage(),
+      home: HomePage(),
       routes: {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/otp': (context) => OtpPage(),
+        '/home': (context) => HomePage(),
       },
     );
   }

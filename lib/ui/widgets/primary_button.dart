@@ -4,16 +4,18 @@ typedef OnPressed = void Function(dynamic);
 
 class PrimaryButton extends StatefulWidget {
 
+  final Key key;
+  final Color color;
   final String buttonText;
   final OnPressed onPressed;
 
-  PrimaryButton({this.buttonText, this.onPressed});
+  PrimaryButton({this.key, this.color = Colors.black, this.buttonText, this.onPressed}) : super(key: key);
 
   @override
-  _PrimaryButtonState createState() => _PrimaryButtonState();
+  PrimaryButtonState createState() => PrimaryButtonState();
 }
 
-class _PrimaryButtonState extends State<PrimaryButton> {
+class PrimaryButtonState extends State<PrimaryButton> {
 
   String _buttonText;
 
@@ -32,7 +34,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
         onPressed: () {
           widget.onPressed(null);
         },
-        color: Colors.black,
+        color: widget.color,
         disabledColor: Colors.white30,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0)),
@@ -45,5 +47,11 @@ class _PrimaryButtonState extends State<PrimaryButton> {
         ),
       ),
     );
+  }
+
+  void updateButtonText(String buttonText) {
+    setState(() {
+      _buttonText = buttonText;
+    });
   }
 }

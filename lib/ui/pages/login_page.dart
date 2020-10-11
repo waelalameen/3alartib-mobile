@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                   padding: const EdgeInsets.symmetric(vertical: 124.0),
                   child: Text(
-                    '3laratib',
+                    '3lratib',
                     style: TextStyle(
                         color: white,
                         fontSize: 42.0,

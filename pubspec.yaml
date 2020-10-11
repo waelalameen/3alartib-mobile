@@ -52,6 +52,10 @@ flutter:
     - assets/identification.svg
     - assets/credit_card.svg
     - assets/scan_qr.svg
+    - assets/sign_out.svg
+    - assets/bill.svg
+    - assets/qr_code.svg
+    - assets/test_logo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

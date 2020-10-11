@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ratib_project/ui/pages/bill_details_page.dart';
 import 'package:ratib_project/ui/pages/home_page.dart';
 import 'package:ratib_project/ui/pages/login_page.dart';
 import 'package:ratib_project/ui/pages/otp_page.dart';
@@ -24,12 +25,13 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         appBarTheme: AppBarTheme(brightness: Brightness.light)
       ),
-      home: HomePage(),
+      home: BillDetailsPage(),
       routes: {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/otp': (context) => OtpPage(),
         '/home': (context) => HomePage(),
+        '/bill_details': (context) => BillDetailsPage(),
       },
     );
   }

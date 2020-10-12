@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ratib_project/ui/colors.dart';
-import 'package:ratib_project/ui/widgets/dashed_rect.dart';
+import 'package:ratib_project/ui/widgets/dashed_line.dart';
 import 'package:ratib_project/ui/widgets/purchased_item_card.dart';
 
 class BillDetailsPage extends StatefulWidget {
@@ -12,6 +14,12 @@ class BillDetailsPage extends StatefulWidget {
 class _BillDetailsPageState extends State<BillDetailsPage> {
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+    ));
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Bill ID', style: TextStyle(color: Colors.black87)),
@@ -19,11 +27,12 @@ class _BillDetailsPageState extends State<BillDetailsPage> {
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        primary: true,
+        //primary: true,
         child: Container(
           height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,28 +54,27 @@ class _BillDetailsPageState extends State<BillDetailsPage> {
                   Image.asset('assets/test_logo.png', width: 64.0, height: 64.0)
                 ],
               ),
-              SizedBox(height: 32.0),
-              DashedRect(
-                color: Colors.black87,
-                gap: 2.0,
-              ),
               SizedBox(height: 16.0),
+              DashedLine(
+                color: Colors.black87,
+              ),
+              SizedBox(height: 24.0),
               Flexible(
-                  flex: 2,
                   child: ListView.builder(
-                    primary: false,
+                    //primary: false,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
                     itemCount: 4,
                     itemBuilder: (context, index) {
                       return PurchasedItemCard();
                     },
                   )),
-              SizedBox(height: 16.0),
-              DashedRect(
+              SizedBox(height: 24.0),
+              DashedLine(
                 color: Colors.black87,
-                gap: 2.0,
               ),
+              SizedBox(height: 16.0),
               Flexible(
-                flex: 2,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -86,11 +94,12 @@ class _BillDetailsPageState extends State<BillDetailsPage> {
               SizedBox(height: 32.0),
               Text(
                   'If you need a refund, please ask the merchant to scan the QR code below!',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.black87,
                       fontWeight: FontWeight.w600,
                       fontSize: 16.0)),
-              SizedBox(height: 16.0),
+              SizedBox(height: 32.0),
               SvgPicture.asset('assets/qr_code.svg', width: 124, height: 124)
             ],
           ),

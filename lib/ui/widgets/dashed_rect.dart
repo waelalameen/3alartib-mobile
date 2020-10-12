@@ -7,7 +7,7 @@ class DashedRect extends StatelessWidget {
   final double gap;
 
   DashedRect(
-      {this.color = Colors.black, this.strokeWidth = 1.0, this.gap = 5.0});
+      {this.color = Colors.black, this.strokeWidth = 8.0, this.gap = 5.0});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,7 @@ class DashedRect extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(strokeWidth / 2),
         child: CustomPaint(
+          size: Size(20, 20),
           painter:
           DashRectPainter(color: color, strokeWidth: strokeWidth, gap: gap),
         ),

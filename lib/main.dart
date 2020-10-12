@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ratib_project/ui/pages/bill_details_page.dart';
 import 'package:ratib_project/ui/pages/home_page.dart';
 import 'package:ratib_project/ui/pages/login_page.dart';
@@ -20,6 +21,21 @@ class MyApp extends StatelessWidget {
       statusBarColor: primary,
       systemNavigationBarColor: primary
     ));*/
+    Future.wait([
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/splash1.svg'),
+          null
+      ),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/splash2.svg'),
+          null
+      ),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/splash3.svg'),
+          null
+      ),
+    ]);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '3lratib',

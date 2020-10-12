@@ -7,13 +7,6 @@ import '../colors.dart';
 class OnboardingSecondChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future.wait([
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/splash2.svg'),
-          null
-      ),
-    ]);
-
     return Container(
       child: Center(
         child: Column(

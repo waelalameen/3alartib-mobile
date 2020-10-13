@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
         statusBarColor: primary,
         systemNavigationBarColor: primary
     ));
+
     return Scaffold(
       backgroundColor: primary,
       body: SingleChildScrollView(

@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   PrimaryButton(
                     buttonText: 'Login',
-                    onPressed: (_) {
+                    onPressed: () {
                       setState(() {
                         _phoneNumberKey.currentState.notifyAction();
                         _passwordKey.currentState.notifyAction();

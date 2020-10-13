@@ -108,7 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   PrimaryButton(
                     buttonText: 'Create Account',
-                    onPressed: (_) {
+                    onPressed: () {
                       setState(() {
                         _phoneNumberKey.currentState.notifyAction();
                         _fullNameKey.currentState.notifyAction();

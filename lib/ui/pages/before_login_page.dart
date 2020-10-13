@@ -43,7 +43,7 @@ class _BeforeLoginPageState extends State<BeforeLoginPage> {
             PrimaryButton(
               color: primary,
               buttonText: 'User',
-              onPressed: (_) {
+              onPressed: () {
 
               },
             ),
@@ -58,7 +58,7 @@ class _BeforeLoginPageState extends State<BeforeLoginPage> {
             SizedBox(height: 8.0,),
             PrimaryButton(
               buttonText: 'Merchant',
-              onPressed: (_) {
+              onPressed: () {
 
               },
             ),

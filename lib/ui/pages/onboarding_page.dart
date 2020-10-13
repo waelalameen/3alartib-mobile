@@ -77,7 +77,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     key: _globalKey,
                     color: primary,
                     buttonText: 'Next',
-                    onPressed: (_) {
+                    onPressed: () {
                       if (!_changeAction) {
                         _controller.jumpToPage(_currentPageNotifier.value + 1);
                       } else {

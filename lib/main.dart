@@ -6,8 +6,10 @@ import 'package:ratib_project/ui/pages/home_page.dart';
 import 'package:ratib_project/ui/pages/login_page.dart';
 import 'package:ratib_project/ui/pages/onboarding_page.dart';
 import 'package:ratib_project/ui/pages/otp_page.dart';
+import 'package:ratib_project/ui/pages/payment_process_page.dart';
 import 'package:ratib_project/ui/pages/register_page.dart';
 
+import 'ui/pages/authentication_page.dart';
 import 'ui/pages/before_login_page.dart';
 
 void main() {
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         appBarTheme: AppBarTheme(brightness: Brightness.light)
       ),
-      home: BillDetailsPage(),
+      home: PaymentProcessPage(),
       routes: {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),

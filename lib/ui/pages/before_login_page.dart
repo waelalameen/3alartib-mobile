@@ -15,8 +15,8 @@ class _BeforeLoginPageState extends State<BeforeLoginPage> {
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
+      statusBarColor: Colors.white,
+      systemNavigationBarColor: Colors.white,
     ));
     return Scaffold(
       body: Container(
@@ -44,7 +44,11 @@ class _BeforeLoginPageState extends State<BeforeLoginPage> {
               color: primary,
               buttonText: 'User',
               onPressed: () {
+                Navigator.pushNamed(context, '/login').then((value) {
+                  setState(() {
 
+                  });
+                });
               },
             ),
             SizedBox(height: 16.0,),

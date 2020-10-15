@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ratib_project/ui/colors.dart';
 import 'package:ratib_project/ui/pages/profile_page.dart';
-
 import 'bills_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,10 +22,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ));
+    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
+    FlutterStatusbarcolor.setNavigationBarColor(Colors.white);
+    FlutterStatusbarcolor.setNavigationBarWhiteForeground(false);
+
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -65,7 +64,14 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () async {
+            String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+                '#FF26C165',
+                'Cancel',
+                true,
+                ScanMode.QR);
+            print('barcodeScanRes : $barcodeScanRes');
+          },
           child: SvgPicture.asset('assets/scan_qr.svg'),
         ));
   }

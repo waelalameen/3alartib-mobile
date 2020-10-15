@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:ratib_project/ui/colors.dart';
 import 'package:ratib_project/ui/widgets/input_field.dart';
 import 'package:ratib_project/ui/widgets/primary_button.dart';
@@ -10,11 +11,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
   GlobalKey<InputFieldState> _phoneNumberKey = GlobalKey();
   GlobalKey<InputFieldState> _passwordKey = GlobalKey();
 
+  //String _phoneNumber;
+  //String _password;
+
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: primary,
         systemNavigationBarColor: primary
@@ -46,7 +52,9 @@ class _LoginPageState extends State<LoginPage> {
                     inputType: TextInputType.phone,
                     maxLength: 11,
                     onChange: (text) {},
-                    onSubmit: (text) {},
+                    onSubmit: (text) {
+
+                    },
                   ),
                   SizedBox(
                     height: 8.0,
@@ -69,6 +77,13 @@ class _LoginPageState extends State<LoginPage> {
                         _phoneNumberKey.currentState.notifyAction();
                         _passwordKey.currentState.notifyAction();
                       });
+
+                      var phoneNumber = _phoneNumberKey.currentState.getEditingController.text;
+                      var password = _passwordKey.currentState.getEditingController.text;
+
+                      print('$phoneNumber - $password');
+
+                      Navigator.pushNamedAndRemoveUntil(context, '/home', (_) => false);
                     },
                   )
                 ],

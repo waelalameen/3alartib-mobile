@@ -50,6 +50,8 @@ class InputFieldState extends State<InputField> {
 
   final TextEditingController _controller = TextEditingController();
 
+  TextEditingController get getEditingController => _controller;
+
   @override
   void initState() {
     _inputType = widget.inputType ?? TextInputType.text;

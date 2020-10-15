@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ratib_project/ui/colors.dart';
@@ -15,16 +14,18 @@ class _BillDetailsPageState extends State<BillDetailsPage> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ));
+    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
+    FlutterStatusbarcolor.setNavigationBarColor(Colors.white);
+    FlutterStatusbarcolor.setNavigationBarWhiteForeground(false);
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Bill ID', style: TextStyle(color: Colors.black87)),
         elevation: 0,
         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black87
+        ),
       ),
       body: SingleChildScrollView(
         //primary: true,

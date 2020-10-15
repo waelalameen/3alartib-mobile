@@ -11,6 +11,7 @@ import 'package:ratib_project/ui/pages/register_page.dart';
 
 import 'ui/pages/authentication_page.dart';
 import 'ui/pages/before_login_page.dart';
+import 'ui/pages/splash_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,28 +27,26 @@ class MyApp extends StatelessWidget {
     Future.wait([
       precachePicture(
           ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/splash1.svg'),
-          null
-      ),
+          null),
       precachePicture(
           ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/splash2.svg'),
-          null
-      ),
+          null),
       precachePicture(
           ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/splash3.svg'),
-          null
-      ),
+          null),
     ]);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '3lratib',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        appBarTheme: AppBarTheme(brightness: Brightness.light)
-      ),
-      home: PaymentProcessPage(),
+          primarySwatch: Colors.green,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          appBarTheme: AppBarTheme(brightness: Brightness.light)),
+      home: HomePage(),
       routes: {
+        '/onboarding': (context) => OnboardingPage(),
+        '/before_login': (context) => BeforeLoginPage(),
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/otp': (context) => OtpPage(),

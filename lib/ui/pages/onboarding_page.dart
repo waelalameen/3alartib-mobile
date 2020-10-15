@@ -81,7 +81,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       if (!_changeAction) {
                         _controller.jumpToPage(_currentPageNotifier.value + 1);
                       } else {
-
+                        Navigator.pushNamedAndRemoveUntil(context, '/before_login', (_) => false);
                       }
                     },
                   ),
